@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios'; 
 import "./App.css";
 import Photo from './Components/photo';
+import styled from 'styled-components';
 
 const URL = 'https://api.nasa.gov'
 const apiKEY = 'erhbfoW9832V67LdgfJO8cfPVc4CB8O6LdJIKJES'
@@ -22,7 +23,7 @@ function App() {
         console.log(dailyPhoto);
       })
       .catch( (err) => {
-        debugger;
+        // debugger;
       })
     // }
     // fetchPhoto();
@@ -35,12 +36,25 @@ function App() {
   // )
 
   return (
-    <div className="App">
-      <h1> NASA Photo of the Day </h1>
+    <StyledPage className="App">
+      <StyledH1> NASA Photo of the Day </StyledH1>
     <Photo dailyPhoto={dailyPhoto} />
-    </div>
+    </StyledPage>
   );
 }
+
+const StyledPage = styled.div`
+  
+`
+const StyledH1 = styled.h1`
+  color: #FC3D21;
+
+  &:hover {
+    color: #0B3D91;
+}
+`
+
+
 
 export default App;
 
